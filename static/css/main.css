@@ -1,0 +1,13 @@
+.wb-card {
+    border:1px solid #999;
+}
+
+.wb-card-btn {
+    width: 120px;
+    position:absolute;
+    bottom: 10px !important;
+}
+
+.card-body {
+    height:150px;
+}
