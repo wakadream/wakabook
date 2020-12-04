@@ -12,8 +12,7 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-          <!--a class="nav-link active" href="#">Links</a>
-          <a class="nav-link" href="#">Quiz</a-->
+         
         </div>
       </div>
     </nav>
@@ -24,7 +23,7 @@
         <div class="col align-self-start">
         </div>
         <div class="col align-self-center" style="text-align: center;font-size:30px;">
-            Technology
+            Let's do the MATHS
         </div>
         <div class="col align-self-end">
 
@@ -34,19 +33,20 @@
         <div class="col align-self-start">
         </div>
         <div class="col align-self-center" style="text-align: center;">
-
-
-            <div class="list-group">
-                <a href="https://www.nasa.gov/kidsclub/index.html" class="list-group-item list-group-item-action" target="_blank">NASA Kids Club</a>
-                <a href="https://pbskids.org/cyberchase/" class="list-group-item list-group-item-action" target="_blank">Cyber Chase</a>
-                <a href="https://www.nitrotype.com/" class="list-group-item list-group-item-action" target="_blank">Nitro Type</a>
-              </div>
-
-
+            <button id="btn-start" type="button" class="btn btn-primary btn-lg">Start</button>
         </div>
         <div class="col align-self-end">
         </div>
       </div>
+    </div>
+
+    <div id="question-holder">
+        <div class="row">
+            <div id="question">1 + 1</div> = <input />
+
+        </div>
+
+        <button id="btn-start" type="button" class="btn btn-primary btn-lg">Next</button>
     </div>
 
 </div><!--End of main container -->
@@ -56,7 +56,25 @@
 
 
     <script>
+        $("#btn-start").hide();
+        $("#question-holder").hide();
+        var questions = null;
+        $.getJSON( "/data/addition.json", function( data ) {
+            console.log(data);
+            $("#btn-start").show();
+        //   for(let i=0;i<data.length;i++) {
+        //       $('#question').append("<p>" + data[i].question + "</p>");
+        //   }
+            questions = data;
+        
+        });
+        
+        $("#btn-start").click(function() {
+            $('#start-holder').hide();
+            $('#question').html(questions[0].question);
+            $("#question-holder").show();
 
+        });
 
 
     </script>
