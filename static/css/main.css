@@ -11,3 +11,7 @@
 .card-body {
     height:150px;
 }
+
+.wb-media img{
+    width: 100px !important;
+}
